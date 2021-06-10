@@ -4,12 +4,20 @@ import routes from "../route";
 import { BrowserRouter as Router } from "react-router-dom";
 import "antd/dist/antd.less";
 import BaseHeader from "./BaseHeader";
+import BaseMenu from "./BaseMenu";
+import  './index.less'
+
 const Layout = () => {
   return (
     <React.Suspense fallback>
       <Router>
-        <BaseHeader />
-        <div>{renderRoutes(routes)}</div>
+        <div className='container'>
+          <BaseMenu />
+          <div className='content'>
+            <BaseHeader />
+            {renderRoutes(routes)}
+          </div>
+        </div>
       </Router>
     </React.Suspense>
   );
