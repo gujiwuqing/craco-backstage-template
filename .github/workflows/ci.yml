@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
-          ref: master
+          ref: main
       - name: Install and Build
         env:
           TOKEN: ${{secrets.ACCESS_TOKEN}}
@@ -37,6 +37,6 @@ jobs:
           git remote add origin https://${REF}
           git add .
           git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
-          git branch -M master
-          git push --force --quiet "https://${TOKEN}@${REF}" master:gh-pages
+          git branch -M main
+          git push --force --quiet "https://${TOKEN}@${REF}" main:gh-pages
 
