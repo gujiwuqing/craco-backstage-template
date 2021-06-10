@@ -1,4 +1,5 @@
 const CracoLessPlugin = require('craco-less')
+const FastRefreshCracoPlugin = require('craco-fast-refresh')
 const path = require('path')
 const resolve = pathUrl => path.join(__dirname, pathUrl)
 module.exports = {
@@ -9,11 +10,14 @@ module.exports = {
     },
     babel: {
         plugins: [
-            ['import', {libraryName: 'antd', style: true}],
-            ['@babel/plugin-proposal-decorators', {legacy: true}]
+            ['import', { libraryName: 'antd', style: true }],
+            ['@babel/plugin-proposal-decorators', { legacy: true }]
         ]
     },
     plugins: [
+        {
+            plugin: FastRefreshCracoPlugin
+        },
         {
             plugin: CracoLessPlugin,
             options: {
