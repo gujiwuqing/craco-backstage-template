@@ -30,7 +30,7 @@ jobs:
         run: |
           npm install
           npm run build
-          cd ./build
+          cd ./dist
           git config --global user.email "${MYEMAIL}"
           git config --global user.name "${MYNAME}"
           git init
