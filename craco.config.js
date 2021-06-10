@@ -15,9 +15,9 @@ module.exports = {
         ]
     },
     plugins: [
-        {
-            plugin: FastRefreshCracoPlugin
-        },
+        // {
+        //     plugin: FastRefreshCracoPlugin
+        // },
         {
             plugin: CracoLessPlugin,
             options: {

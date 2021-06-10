@@ -6,6 +6,7 @@ import "antd/dist/antd.less";
 import BaseHeader from "./BaseHeader";
 import BaseMenu from "./BaseMenu";
 import  './index.less'
+import { hot } from 'react-hot-loader'
 
 const Layout = () => {
   return (
@@ -23,4 +24,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default hot(module)(Layout)
