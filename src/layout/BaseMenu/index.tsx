@@ -1,24 +1,61 @@
 import useStore from "@/store/index";
-import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 import { Menu, Layout } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import routes from "@/route/menu";
 
 export default function BaseMenu() {
   let history = useHistory();
+  const [selectedKeys, setSelectedKeys] = useState([
+    "/craco-backstage-template",
+  ]);
   const { Sider } = Layout;
   const { SubMenu } = Menu;
   const collapsed = useStore((state) => state.collapsed);
+  const handleSelectKey = (path: string) => {
+    history.push(path);
+    setSelectedKeys([path]);
+  };
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
       <Menu
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
         mode="inline"
         theme="dark"
         style={{ minHeight: "100vh" }}
+        selectedKeys={selectedKeys}
       >
-        <Menu.Item
+        {routes.map((item) => {
+          if (item.routes) {
+            return (
+              <SubMenu key={item.path} title={item.title}>
+                {item.routes.map((i) => {
+                  return (
+                    <Menu.Item
+                      key={i.path}
+                      onClick={() => {
+                        handleSelectKey(i.path);
+                      }}
+                    >
+                      {i.title}
+                    </Menu.Item>
+                  );
+                })}
+              </SubMenu>
+            );
+          } else {
+            return (
+              <Menu.Item
+                key={item.path}
+                onClick={() => {
+                  handleSelectKey(item.path);
+                }}
+              >
+                {item.title}
+              </Menu.Item>
+            );
+          }
+        })}
+        {/* <Menu.Item
           key="1"
           icon={<PieChartOutlined />}
           onClick={() => {
@@ -55,7 +92,7 @@ export default function BaseMenu() {
           >
             基础表格
           </Menu.Item>
-        </SubMenu>
+        </SubMenu> */}
       </Menu>
     </Sider>
   );

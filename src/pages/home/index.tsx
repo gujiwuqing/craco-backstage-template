@@ -70,6 +70,7 @@ const Home = () => {
               <img
                 src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
                 width="100%"
+                alt=''
               />
             }
           />
