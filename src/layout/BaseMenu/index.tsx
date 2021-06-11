@@ -1,14 +1,7 @@
 import React from "react";
 import { Menu } from "antd";
-import {
-  AppstoreOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-} from "@ant-design/icons";
+import { PieChartOutlined, DesktopOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
-const { SubMenu } = Menu;
 export default function BaseMenu() {
   let history = useHistory();
   return (
