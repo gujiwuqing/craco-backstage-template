@@ -28,7 +28,7 @@ const ThemeColor = () => {
     } else {
       changeAntdTheme(color);
     }
-  }, []);
+  });
   const colorMenu = (
     <div className="color_container">
       <div className="color_header">主题色</div>

@@ -5,6 +5,8 @@ type State = {
   removeAllBears: () => void;
   color?: string;
   changeColor?: (color?: string) => void;
+  collapsed?: boolean;
+  toggleCollapsed?: () => void;
 };
 const useStore = create<State>((set) => ({
   bears: 0,
@@ -12,6 +14,8 @@ const useStore = create<State>((set) => ({
   removeAllBears: () => set({ bears: 0 }),
   color: localStorage.getItem("color") || "#1F6DED",
   changeColor: (val) => set(() => ({ color: val })),
+  collapsed: false,
+  toggleCollapsed: () => set((state) => ({ collapsed: !state.collapsed })),
 }));
 
 export default useStore;

@@ -1,29 +1,45 @@
-// import React, { ReactNode } from "react";
-// import { ParamsType } from "@ant-design/pro-provider";
-// import ProTable, { ProTableProps } from "@ant-design/pro-table";
-
-// export interface BaseTableProps<T, U extends ParamsType>
-//   extends ProTableProps<T, U> {
-//   renderActions?: () => ReactNode;
-//   renderSider?: () => ReactNode;
-//   inputPlaceholderText?: string;
-//   actionRef?: any;
-//   onResetTable?: () => void;
-// }
-
-// export default function BaseTable<T, U extends ParamsType>({
-//   ...rest
-// }: BaseTableProps<T, U>) {
-//   return <div>{<ProTable {...rest} />}</div>;
-// }
-
-import React from 'react'
-
-export default function index() {
-    return (
-        <div>
-            
-        </div>
-    )
+import { ParamsType } from '@ant-design/pro-provider';
+import ProTable, { ProTableProps } from '@ant-design/pro-table';
+import { Button, Input } from 'antd';
+import React, { ReactNode } from 'react';
+interface BaseTableProps<T, U extends ParamsType> extends ProTableProps<T, U> {
+  inputPlachoderText?: string;
+  renderActions?: () => ReactNode;
 }
 
+export function BaseTable<T, U extends ParamsType>({
+  inputPlachoderText,
+  renderActions,
+  ...reset
+}: BaseTableProps<T, U>) {
+  return (
+    <>
+      <ProTable<T, U>
+        search={false}
+        rowKey="id"
+        toolbar={{
+          search: renderActions && renderActions(),
+          actions: [
+            <>
+              <Input
+                placeholder={
+                  inputPlachoderText
+                    ? inputPlachoderText
+                    : '请输入你想查询的条件'
+                }
+              />
+              <Button key="primary" type="primary">
+                查询
+              </Button>
+              <Button key="reset" type="primary">
+                重置
+              </Button>
+            </>,
+          ],
+        }}
+        pagination={{ pageSize: 10, showQuickJumper: true }}
+        {...reset}
+      />
+    </>
+  );
+}
