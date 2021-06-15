@@ -9,6 +9,7 @@ import "./index.less";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
 import { hot } from "react-hot-loader";
+import { Card } from "antd";
 
 const Layout = () => {
   return (
@@ -19,7 +20,7 @@ const Layout = () => {
             <BaseMenu />
             <div className="content">
               <BaseHeader />
-              {renderRoutes(routes)}
+              <Card> {renderRoutes(routes)}</Card>
             </div>
           </div>
         </Router>

@@ -28,6 +28,18 @@ const routes: routeItem[] = [
       },
     ],
   },
+  {
+    path: "/craco-backstage-template/editor",
+    title: "编辑器",
+    name:'editor',
+    routes: [
+      {
+        path: "/craco-backstage-template/editor/rich-text",
+        title: "富文本编辑器",
+        name:'rich-text'
+      },
+    ],
+  },
 ];
 
 export default routes;
