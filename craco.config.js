@@ -1,5 +1,4 @@
 const CracoLessPlugin = require('craco-less')
-const FastRefreshCracoPlugin = require('craco-fast-refresh')
 const path = require('path')
 const resolve = pathUrl => path.join(__dirname, pathUrl)
 module.exports = {
@@ -15,9 +14,6 @@ module.exports = {
         ]
     },
     plugins: [
-        // {
-        //     plugin: FastRefreshCracoPlugin
-        // },
         {
             plugin: CracoLessPlugin,
             options: {
