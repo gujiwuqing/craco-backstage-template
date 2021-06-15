@@ -66,11 +66,13 @@ const ThemeColor = () => {
     </div>
   );
   return (
-    <Dropdown overlay={colorMenu} trigger={["click"]} placement="bottomRight">
-      <div onClick={(e) => e.preventDefault()} style={{ cursor: "pointer" }}>
-        <BgColorsOutlined style={{ fontSize: 18 }} />
-      </div>
-    </Dropdown>
+    <div className="header-icon">
+      <Dropdown overlay={colorMenu} trigger={["click"]} placement="bottomRight">
+        <div onClick={(e) => e.preventDefault()} style={{ cursor: "pointer" }}>
+          <BgColorsOutlined style={{ fontSize: 18 }} />
+        </div>
+      </Dropdown>
+    </div>
   );
 };
 

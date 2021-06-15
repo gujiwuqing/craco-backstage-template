@@ -3,8 +3,9 @@ import { Menu, Layout } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import routes from "@/route/menu";
-
+import { useTranslation } from "react-i18next";
 export default function BaseMenu() {
+  const { t } = useTranslation();
   let history = useHistory();
   const [selectedKeys, setSelectedKeys] = useState([
     "/craco-backstage-template",
@@ -27,7 +28,7 @@ export default function BaseMenu() {
         {routes.map((item) => {
           if (item.routes) {
             return (
-              <SubMenu key={item.path} title={item.title}>
+              <SubMenu key={item.path} title={t(item.name)}>
                 {item.routes.map((i) => {
                   return (
                     <Menu.Item
@@ -36,7 +37,7 @@ export default function BaseMenu() {
                         handleSelectKey(i.path);
                       }}
                     >
-                      {i.title}
+                      {t(i.name)}
                     </Menu.Item>
                   );
                 })}
@@ -50,49 +51,11 @@ export default function BaseMenu() {
                   handleSelectKey(item.path);
                 }}
               >
-                {item.title}
+                {t(item.name)}
               </Menu.Item>
             );
           }
         })}
-        {/* <Menu.Item
-          key="1"
-          icon={<PieChartOutlined />}
-          onClick={() => {
-            history.push("/craco-backstage-template");
-          }}
-        >
-          首页
-        </Menu.Item>
-        <Menu.Item
-          key="2"
-          icon={<DesktopOutlined />}
-          onClick={() => {
-            history.push("/craco-backstage-template/test");
-          }}
-        >
-          Test
-        </Menu.Item>
-        <SubMenu key="sub1" icon={<PieChartOutlined />} title="表格">
-          <Menu.Item
-            key="3"
-            icon={<DesktopOutlined />}
-            onClick={() => {
-              history.push("/craco-backstage-template/table/basic-table");
-            }}
-          >
-            基础表格
-          </Menu.Item>
-          <Menu.Item
-            key="3"
-            icon={<DesktopOutlined />}
-            onClick={() => {
-              history.push("/craco-backstage-template/table/drag-table");
-            }}
-          >
-            基础表格
-          </Menu.Item>
-        </SubMenu> */}
       </Menu>
     </Sider>
   );

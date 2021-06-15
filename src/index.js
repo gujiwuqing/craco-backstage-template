@@ -5,9 +5,11 @@ import Layout from './layout'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Layout/>
-    </React.StrictMode>,
+    // <React.StrictMode>
+    //     <Layout/>
+    // </React.StrictMode>
+    <Layout />
+    ,
     document.getElementById('root')
 );
 

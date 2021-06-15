@@ -3,8 +3,11 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import React from "react";
 import "./index.less";
 import ThemeColor from "./ThemeColor";
+import Language from "./Language";
+import { useTranslation } from "react-i18next";
 
 export default function BaseHeader() {
+  const { t } = useTranslation();
   const { collapsed, toggleCollapsed } = useStore((state) => ({
     collapsed: state.collapsed,
     toggleCollapsed: state.toggleCollapsed,
@@ -14,15 +17,18 @@ export default function BaseHeader() {
       <div>
         <span
           onClick={toggleCollapsed}
-          style={{ marginRight:8,cursor:'pointer' }}
+          style={{ marginRight: 8, cursor: "pointer" }}
         >
           {React.createElement(
             collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
           )}
         </span>
-        <span>后台管理系统</span>
+        <span>{t("title")}</span>
       </div>
-      <ThemeColor />
+      <div className="header-right">
+        <ThemeColor />
+        <Language />
+      </div>
     </div>
   );
 }

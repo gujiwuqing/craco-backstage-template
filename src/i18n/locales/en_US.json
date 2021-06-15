@@ -1,0 +1,16 @@
+{
+  "title": "backstage system",
+  "home": "Home",
+  "drag": "Drag",
+  "excel": "Excel",
+  "test": "Test",
+  "upload": "Upload",
+  "table": "Table",
+  "basic-table": "Basic-Table",
+  "drag-table": "Drag-Table",
+  "editor": "Editor",
+  "user-list": "User-List",
+  "user-info": "User-Info",
+  "change-password": "Change-Password",
+  "sign-out": "Sign-Out"
+}
