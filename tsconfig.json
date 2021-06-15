@@ -10,11 +10,7 @@
     "baseUrl": "./",
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,9 +19,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": [
-    "src/**/*",
-    "typings.d.ts"
-  ],
-  "extends": "./paths.json"
+  "include": ["src/**/*", "typings.d.ts"]
+  // "extends": "./paths.json"
 }
