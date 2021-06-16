@@ -2,7 +2,7 @@ import React from "react";
 import { renderRoutes } from "react-router-config";
 import routes from "../route";
 import { BrowserRouter as Router } from "react-router-dom";
-import "antd/dist/antd.less";
+
 import BaseHeader from "./BaseHeader";
 import BaseMenu from "./BaseMenu";
 import "./index.less";

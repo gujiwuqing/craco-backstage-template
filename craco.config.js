@@ -1,19 +1,27 @@
 const CracoLessPlugin = require('craco-less')
 const path = require('path')
+const reactHotReloadPlugin = require('craco-plugin-react-hot-reload');
 const resolve = pathUrl => path.join(__dirname, pathUrl)
 module.exports = {
     webpack: {
         alias: {
-            '@': resolve('src')
+            '@': resolve('src'),
+            'react-dom': '@hot-loader/react-dom',
         }
     },
     babel: {
         plugins: [
-            ['import', { libraryName: 'antd', style: true }],
-            ['@babel/plugin-proposal-decorators', { legacy: true }]
+            ['import', {libraryName: 'antd', style: 'css'}],
+            ['@babel/plugin-proposal-decorators', {legacy: true}]
         ]
     },
+    eslint: {
+        enable: false
+    },
     plugins: [
+        {
+            plugin: reactHotReloadPlugin
+        },
         {
             plugin: CracoLessPlugin,
             options: {
@@ -23,7 +31,7 @@ module.exports = {
                         modifyVars: {},
                         javascriptEnabled: true
                     }
-                }
+                },
             }
         }
     ]

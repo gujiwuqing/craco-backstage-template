@@ -1,9 +1,8 @@
 import React from "react";
-
-const Home = React.lazy(() => import('@/pages/home'))
-const BasicTable = React.lazy(() => import('@/pages/table/basic-table'))
-const DragTable = React.lazy(() => import('@/pages/table/drag-table'))
-const RichText = React.lazy(() => import('@/pages/editor/rich-text'))
+import Home from '@/pages/home'
+import BasicTable from '@/pages/table/basic-table'
+import DragTable from '@/pages/table/drag-table'
+import RichText from '@/pages/editor/rich-text'
 const routes = [
     {
         path: "/craco-backstage-template",

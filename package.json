@@ -5,12 +5,14 @@
   "dependencies": {
     "@ant-design/pro-card": "^1.14.0",
     "@ant-design/pro-table": "^2.40.1",
+    "@hot-loader/react-dom": "^17.0.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.16.2",
     "braft-editor": "^2.3.9",
     "braft-extensions": "^0.1.1",
+    "craco-plugin-react-hot-reload": "^0.1.0",
     "draft-js-prism": "^1.0.6",
     "dynamic-antd-theme": "^0.8.3",
     "i18next": "^20.3.1",
@@ -31,7 +33,7 @@
     "zustand": "^3.5.2"
   },
   "scripts": {
-    "start": "  craco start FAST_REFRESH=true",
+    "start": "PORT=8001 craco start ",
     "build": "CI=false  &&craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
