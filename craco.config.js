@@ -1,13 +1,37 @@
 const CracoLessPlugin = require('craco-less')
-const path = require('path')
+const {resolve} = require('path')
 const reactHotReloadPlugin = require('craco-plugin-react-hot-reload');
-const resolve = pathUrl => path.join(__dirname, pathUrl)
+const WebpackBar = require('webpackbar')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
     webpack: {
         alias: {
-            '@': resolve('src'),
+            '@': resolve(__dirname, 'src'),
             'react-dom': '@hot-loader/react-dom',
-        }
+        },
+        plugins: [
+            new WebpackBar({profile: true}),
+            new CircularDependencyPlugin({
+                exclude: /node_modules/,
+                include: /src/,
+                failOnError: true,
+                allowAsyncCycles: false,
+                cwd: process.cwd()
+            }),
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    compress: {
+                        warnings: false,
+                        drop_debugger: true,
+                        drop_console: true,
+                    },
+                },
+                sourceMap: false,
+                parallel: true,
+            }),
+        ]
     },
     babel: {
         plugins: [
