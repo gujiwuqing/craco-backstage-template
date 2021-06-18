@@ -3,8 +3,11 @@ const {resolve} = require('path')
 const reactHotReloadPlugin = require('craco-plugin-react-hot-reload');
 const WebpackBar = require('webpackbar')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
+const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
+const {
+    whenProd
+} = require('@craco/craco')
 module.exports = {
     webpack: {
         alias: {
@@ -12,25 +15,22 @@ module.exports = {
             'react-dom': '@hot-loader/react-dom',
         },
         plugins: [
-            new WebpackBar({profile: true}),
-            new CircularDependencyPlugin({
-                exclude: /node_modules/,
-                include: /src/,
-                failOnError: true,
-                allowAsyncCycles: false,
-                cwd: process.cwd()
-            }),
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    compress: {
-                        warnings: false,
-                        drop_debugger: true,
-                        drop_console: true,
-                    },
-                },
-                sourceMap: false,
-                parallel: true,
-            }),
+            new SimpleProgressWebpackPlugin({format:'minimal'}),
+            ...whenProd(
+                () => [
+                    new UglifyJsPlugin({
+                        uglifyOptions: {
+                            compress: {
+                                warnings: false,
+                                drop_debugger: true,
+                                drop_console: true,
+                            },
+                        },
+                        sourceMap: false,
+                        parallel: true,
+                    })
+                ], []
+            )
         ]
     },
     babel: {

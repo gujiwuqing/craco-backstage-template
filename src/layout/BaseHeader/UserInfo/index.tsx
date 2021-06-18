@@ -1,12 +1,17 @@
 import React from 'react'
 import {Menu, Dropdown} from 'antd';
 import {DownOutlined, LogoutOutlined, UserOutlined} from '@ant-design/icons';
+import {useHistory} from 'react-router-dom'
 
 const UserInfo = () => {
+    const history = useHistory()
     const menu = (
         <Menu>
             <Menu.Item icon={<LogoutOutlined/>}>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+                <a target="_blank" rel="noopener noreferrer" onClick={() => {
+                    history.replace('/craco-backstage-template/login')
+                }
+                }>
                     退出登录
                 </a>
             </Menu.Item>
