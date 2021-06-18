@@ -1,8 +1,6 @@
 const CracoLessPlugin = require('craco-less')
 const {resolve} = require('path')
 const reactHotReloadPlugin = require('craco-plugin-react-hot-reload');
-const WebpackBar = require('webpackbar')
-const CircularDependencyPlugin = require('circular-dependency-plugin')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {
