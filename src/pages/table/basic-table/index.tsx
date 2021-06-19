@@ -1,6 +1,8 @@
 import React from "react";
 import {BaseTable} from "@/components/BaseTable";
-import { getUserList } from "@/services/table";
+import {getUserList} from "@/services/table";
+import Create from "./Create";
+
 export default function index() {
   const columns = [
     {
@@ -35,11 +37,12 @@ export default function index() {
       <BaseTable
         columns={columns}
         key="id"
+        renderActions={() => <Create/>}
         request={async () => {
           const {
-            data: { list },
+            data: {list},
           } = await getUserList();
-          return { data: list, total: list.length };
+          return {data: list, total: list.length};
         }}
       />
     </>

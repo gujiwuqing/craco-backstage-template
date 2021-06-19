@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/pro-card": "^1.14.0",
+    "@ant-design/pro-form": "^1.29.1",
     "@ant-design/pro-table": "^2.40.1",
     "@hot-loader/react-dom": "^17.0.1",
     "@testing-library/jest-dom": "^5.11.4",

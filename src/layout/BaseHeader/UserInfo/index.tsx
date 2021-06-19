@@ -7,15 +7,16 @@ const UserInfo = () => {
     const history = useHistory()
     const menu = (
         <Menu>
-            <Menu.Item icon={<LogoutOutlined/>}>
-                <a target="_blank" rel="noopener noreferrer" onClick={() => {
-                    history.replace('/craco-backstage-template/login')
+            <Menu.Item icon={<LogoutOutlined/>} key='1'>
+                <a onClick={() => {
+                    history.push('/craco-backstage-template/login')
+                    history.go(0)
                 }
                 }>
                     退出登录
                 </a>
             </Menu.Item>
-            <Menu.Item icon={<UserOutlined/>}>
+            <Menu.Item icon={<UserOutlined/>} key='2'>
                 <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
                     个人中心
                 </a>
